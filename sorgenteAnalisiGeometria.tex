@@ -1,0 +1,998 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{soul,color}
+\usepackage[italian]{varioref}
+\usepackage{amsmath}
+\usepackage{chemfig}
+\usepackage{pdfpages}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{mathdots}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pifont}
+\usepackage{pstricks}
+\usepackage{lipsum}
+\hypersetup{
+colorlinks=false,
+allbordercolors=white
+}
+
+
+\geometry{a4paper, top=3cm, bottom=3cm, left=2cm, right=2cm,  heightrounded, bindingoffset=5mm}
+\newcommand{\nlongRightarrow}{\mkern12mu\not\mkern-10mu\implies}
+\newcommand{\nlongLeftRightarrow}{\mkern12mu\not\mkern-14mu\iff}
+\newcommand{\Ne}{\mathbb{N}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\sss}{\textit{se e solo se }}
+\newcommand{\nb}[1]{\underline{\textbf{Nota Bene: #1}}}
+\newenvironment{sistema}% 
+{\left\lbrace\begin{array}{{@{}l@{}l@{}l@{}l@{}}}}% 
+	{\end{array}\right.}
+\newcommand{\n}{\par \noindent \newline}
+\newcommand{\nid}{\newline \par}
+\newcommand{\ns}{\par \noindent}
+\begin{document}
+	\title{\textbf{Analisi Matematica I \\ Geometria I}}
+	\date{Anno Accademico 2021/2022}
+	\maketitle
+	
+	\begin{center}
+		Corso di Analisi I e Geometria I\\ Facoltà di Ingegneria Informatica\\
+		\vspace{1cm}
+		\author{@Author: Francesco Maura}
+	\end{center}
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[scale=0.5]{mat.jpg}
+	\end{figure}
+
+\newpage
+\tableofcontents
+\newpage
+\begin{center}
+	{\LARGE \textbf{Analisi}}
+\end{center}
+\section[Analisi I: Insiemi]{Insiemi}
+\subsection{Nozioni preliminari}
+Con concetto primitivo si intende un'entità che non è soggetta ad alcuna definizione. Gli elementi di tale concetto non sono soggetti ad alcuna definizione.
+\\
+\\
+\textbf{Insieme: }è definito (\textit{secondo la definizione di G.Cantor}) come un aggregato di oggetti determinati e distinti.
+\\
+\\
+- Gli oggetti dell'insieme si chiamano \textit{elementi}.
+\\
+- Gli insiemi si indicano con le lettere maiuscole dell'alfabeto inglese
+\\
+- Gli elementi con le lettere minuscole.
+\\
+\subsection{Caratteristiche e definizioni}
+Definizione di insieme:
+
+\begin{center}
+	\begin{math}
+	A = \left\lbrace a,b,c,d,e,f,c\right\rbrace 
+\end{math}
+\end{center}
+in un insieme non ordinato non conta l'ordine degli elementi, quindi
+\\
+\begin{center}
+	\begin{math}
+		A = \left\lbrace a,b,c,d,e\right\rbrace = \left\lbrace a,c,d,b,e\right\rbrace.
+	\end{math}
+\end{center}
+Se in un insieme sono presenti più elementi uguali, l'insieme sarà sempre formato dal solo elemento senza ripetizioni:
+
+\begin{center}
+	\begin{math}
+		A = \left\lbrace a,a,a,a\right\rbrace = \left\lbrace a\right\rbrace.
+	\end{math}
+\end{center}
+Con la notazione $ \left\lbrace a\right\rbrace  $ si indica il \textit{singleton di a}.
+\\
+Per indicare che uno o più elementi appartengono ad un insieme si utilizza il simbolo $\in$ (\textit{si legge appartiene}). Ad esempio, per indicare che l'elemento $b$ appartiene all'insieme $A$ si scrive
+\begin{center}
+	\begin{math}
+		b \in A
+	\end{math}
+\end{center}
+analogamente per indicare la non appartenenza si usa il simbolo $\notin$ (\textit{si legge non appartiene}). Se l'elemento $c$ non appartiene all'insieme $A$ si indica
+\begin{center}
+	\begin{math}
+		c\notin A.
+	\end{math}
+\end{center}
+Due insiemi sono \underline{uguali} quando hanno gli \underline{stessi elementi}:
+
+\begin{center}
+	\begin{math}
+		\begin{array}{l}
+			A = \left\lbrace a,b,c\right\rbrace \\
+			B = \left\lbrace a,b,c\right\rbrace \\
+			C = \left\lbrace a,b,c\right\rbrace \\
+			A=B\not=C.
+		\end{array}
+	\end{math}
+\end{center}
+Se un insieme presenta \textit{parte} o \textit{tutti} gli elementi di un altro insieme vuol dire che esso è un suo \textit{sottoinsieme}.
+\begin{center}
+	\begin{math}
+		\begin{array}{l}
+			A = \left\lbrace a,b,c \right\rbrace \\
+			B=\left\lbrace a,b \right\rbrace 
+		\end{array}
+	\end{math}
+\end{center}
+in questo caso si dice che $B$ è \textit{sottoinsieme} di $A$, tutti gli elementi di $B$ sono elementi di $A$.\\
+In simboli si esprime con:
+\begin{center}
+	\begin{math}
+		B \subseteq A
+	\end{math}
+\end{center}
+il simbolo $\subseteq$ indica un'inclusione \textit{larga}, e può essere scomposta in due tipi:
+
+\begin{center}
+	\begin{math}
+		\left\lbrace 
+		\begin{array}{l}
+			B \subset A\\
+			B = A
+		\end{array}
+	\right.
+	\end{math}
+\end{center}
+il simbolo $\subset$ invece indica un'inclusione stretta.\\
+\underline{\textbf{Nota Bene: possono anche esserci insiemi formati da altri insiemi, qui sotto è fornito un esempio}}
+\begin{center}
+	\begin{math}
+		A=\left\lbrace B,C,D\right\rbrace .
+	\end{math}
+\end{center}
+\subsection{Definizione di proprietà definita di un insieme}
+Sia $S$ un insieme. Si dice che la proprietà $\alpha$ è definita in $S$ se per ogni elemento $x\in S$ vale una delle seguenti condizioni:
+\begin{enumerate}
+	\item x gode della proprietà $\alpha$, quindi è vera
+	\item x non gode della proprietà $\alpha$, quindi è falsa
+\end{enumerate}
+\textbf{Esempio:}
+Sia $S$ l'insieme formato dai primi 5 numeri naturali e $P$ l'insieme delle automobili:
+\begin{center}
+	\begin{math}
+		\begin{array}{l}
+			S=\left\lbrace 1,2,3,4,5\right\rbrace \\
+			P=\left\lbrace automobili\right\rbrace 
+		\end{array}
+	\end{math}
+\end{center}
+per questi insiemi prendiamo tre proprietà:
+\begin{enumerate}
+	\item proprietà $\alpha$: "$x$ è pari"
+	\item proprietà $\beta$: "$x$ è un numero maggiore di $8$"
+	\item proprietà $\gamma$: "$x$ è verde"
+\end{enumerate}
+\textbf{Definizione: }una proprietà è definita in un insieme se \textit{è possibile assegnarle un grado di verità}.\\ \\
+Andando dunque ad applicare le tre proprietà a ciascun insieme si nota che $\alpha$ è definita in $S$, poiché è possibile applicarla ricavando se sia vera oppure falsa. La proprietà $\gamma$ è definita in $P$ ma non in $S$.
+\\
+Applicando una qualunque proprietà ad un insieme di determina un \textit{sottoinsieme}.
+\\
+\\
+Consideriamo ora l'insieme
+\begin{center}
+	\begin{math}
+		A=\left\lbrace x\in S : x \ è pari\right\rbrace = \left\lbrace 2,4\right\rbrace 
+	\end{math}
+\end{center}
+La proprietà $\alpha$ è \underline{definita e vera}, mentre la proposizione $\beta$ è \underline{definita ma falsa} poiché può essere applicata ad ogni elemento dell'insieme $A$ ma è \textit{falsa} per ognuno di essi.
+\textbf{Definizione: }siano $\alpha$ e $\beta$ due proprietà definite in un insieme $S$. Possiamo dire che alfa implica beta e scriveremo $\alpha \implies \beta$ se \underline{ogni volta} che $\alpha$ è vera per un elemento $x \in S$ anche $\beta$ è vera.
+\subsection[Sottoinsiemi impropri]{Sottoinsiemi impropri e impropri \textit{banali}}
+Un sottoinsieme si dice \textit{improprio} quando \underline{tutti i suoi elementi sono elementi di un insieme}, vale anche l'opposto.
+\\
+\begin{center}
+	\begin{math}
+		\emptyset \subseteq A
+	\end{math}
+\end{center}
+l'insieme vuoto è sempre sottoinsieme dell'insieme $A$
+\begin{center}
+	\begin{math}
+		A \subseteq A
+	\end{math}
+\end{center}
+anche l'insieme $A$ è sottoinsieme di se stesso.\\
+\n
+\textbf{Definizione: }dato un insieme $A$, con la notazione $ \mathcal{P}(A)$ si indicano tutti i possibili sottoinsiemi di $A$ e viene chiamato \textit{insieme delle parti di }$A$
+\subsection{Cardinalità di un insieme}
+La cardinalità \textit{o potenza} di un insieme è definita come il numero di elementi di un insieme e viene indicata con $|A|$ oppure con $\# A$.
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\rule[0cm]{0mm}{0.4cm}
+	$A$ & $|A|$ & $|\mathcal{P}(A)|$ &$=$\\
+	\hline
+	\rule[0cm]{0mm}{0.4cm}
+	$\emptyset$ & $0$ & $1$ &$2^0$\\
+	\hline
+	\rule[0cm]{0mm}{0.4cm}
+	$\left\lbrace a\right\rbrace$  & $1$ & $2$ &$2^1$\\
+	\hline
+	\rule[0cm]{0mm}{0.4cm}
+	$\left\lbrace a,b \right\rbrace$ & $2$ & $4$ & $2^2$\\
+	\hline
+	\rule[0cm]{0mm}{0.4cm}
+	$\left\lbrace a,b,...,n \right\rbrace$ & $n$ & $...$ & $2^n$\\
+	\hline
+\end{tabular}
+\end{center}
+\textbf{Definizione: }la cardinalità di un insieme è pari a $2^n$, dove $n$ rappresenta il numero degli elementi dell'insieme, se $A$ è un insieme \textit{finito}.
+\subsection{Operatori logici sugli insiemi}
+L'implicazione logica
+
+\begin{center}
+	$\alpha \stackrel{S}{\implies} \beta$
+\end{center}
+ definisce due sottoinsiemi:
+ \begin{center}
+ 	\begin{math}
+ 		A=\left\lbrace x \in S:\alpha \right\rbrace \ \ \ e \ \ \ B=\left\lbrace x \in S:\beta \right\rbrace.
+ 	\end{math}
+ \end{center}
+Se $\alpha \stackrel{S}{\implies} \beta$ e $\beta \stackrel{S}{\implies} \alpha$ allora $\alpha \stackrel{S}{\iff} \beta$ vuol dire che $\alpha$ e $\beta$ sono invertibili.
+Il simbolo di \textit{non implicazione} si indica con $ \nlongLeftRightarrow$ se è doppia oppure con  $\ \nlongRightarrow$.
+\n
+\textbf{Esempio 1:}
+\begin{center}
+	\begin{math}
+		S=\left\lbrace 1,2,3,4,5 \right\rbrace \ \ \ e \ \ \ T=\left\lbrace 1,2,3,4,5,6,7,8\right\rbrace 
+	\end{math}
+\end{center}
+definiamo due proprietà:
+\begin{enumerate}
+	\item[$\alpha$] $x$ è dispari e minore di 6;
+	\item[$\beta$] $x$ è dispari.
+\end{enumerate}
+Andando ora a costituire gli insiemi derivati dalle proprietà applicate ad $S$ otteniamo
+ \begin{center}
+	\begin{math}
+		\begin{array}{l}
+				A=\left\lbrace x \in S:\alpha\right\rbrace =\left\lbrace 1,3,5\right\rbrace \\ 
+				B=\left\lbrace x \in S:\beta\right\rbrace =\left\lbrace 1,3,5\right\rbrace 
+		\end{array}
+	\end{math}
+
+\end{center}
+in questo caso si nota che $A=B$.\\
+Procedendo analogamente con l'insieme $T$ si ottengono
+\begin{center}
+\begin{math}
+	\begin{array}{l}
+		A'=\left\lbrace x \in T:\alpha\right\rbrace =\left\lbrace 1,3,5\right\rbrace \\ 
+		B'=\left\lbrace x \in T:\beta\right\rbrace =\left\lbrace 1,3,5,7\right\rbrace 
+	\end{array}
+\end{math}
+\end{center}
+si nota che $A \neq B$ e che $A' \subset B'$.\\
+Da questo possiamo concludere che $\alpha \stackrel{T}{\implies} \beta$ ma $\beta \stackrel{T}{\nlongRightarrow} \alpha$ e che le proprietà sono \textit{equivalenti} in $S$ ma non in $T$ .
+\subsection{Operazioni sugli insiemi}
+Per effettuare operazioni sugli insiemi introduciamo i seguenti \textit{operatori}:
+ \begin{center}
+	\begin{math}
+		\begin{array}{l}
+			\cup \ \ indica \ l'unione \\
+			\cap \ \ indica \ l'intersezione\\
+			\setminus \ \ indica \ il \ complemento.
+			
+		\end{array}
+	\end{math}
+\end{center}
+Utilizzando questi operatori andiamo a definire le operazioni possibili.
+\nid
+\textbf{Unione: }
+
+ \begin{center}
+	\begin{math}
+		\begin{array}{l}
+			A\cup B = \left\lbrace x \in S:x\in A \lor x \in B \right\rbrace 
+		\end{array}
+	\end{math}
+\end{center}
+
+indica tutti gli elementi appartenenti all'insieme \textit{Universo} $S$ che sono contenuti in $A$ \underline{oppure} in $B$. \\
+
+L'unione di più insiemi si può rappresentare mediante la notazione
+\begin{equation*}
+	\bigcup_{i=0}^n A_i = A_1 \cup A_2 \cup ... \cup A_n
+\end{equation*}
+
+\underline{\textbf{Questa operazione gode della proprietà associativa}}
+\nid
+\textbf{Intersezione: }
+
+\begin{center}
+	\begin{math}
+		\begin{array}{l}
+			A\cap B = \left\lbrace x \in S:x\in A \wedge x \in B \right\rbrace 
+		\end{array}
+	\end{math}
+\end{center}
+
+indica tutti gli elementi appartenenti all'insieme \textit{Universo} $S$ che sono contenuti \underline{sia} in $A$ \underline{che} in $B$.\\
+
+Per indicare intersezioni tra più insiemi utilizziamo la notazione
+
+\begin{equation*}
+	\bigcap_{i=1}^n A_i = A_1 \cap A_2 \cap ... \cap A_n
+\end{equation*}
+
+\underline{\textbf{Questa operazione gode della proprietà associativa}}
+\nid
+\textbf{Complemento o \textit{differenza}: }
+
+\begin{center}
+	\begin{math}
+		\begin{array}{l}
+			A\setminus B = \left\lbrace x \in S:x\in A \wedge x \notin B \right\rbrace 
+		\end{array}
+	\end{math}
+\end{center}
+
+indica tutti gli elementi appartenenti all'insieme \textit{Universo} $S$ che sono contenuti in $A$ \underline{ma non} in $B$.
+
+\begin{center}
+	\begin{math}
+		\begin{array}{l}
+			B \setminus A = \left\lbrace x \in S:x\notin A \wedge x \in B \right\rbrace 
+		\end{array}
+	\end{math}
+\end{center}
+
+indica tutti gli elementi appartenenti all'insieme \textit{Universo} $S$ che sono contenuti in $A$ \underline{ma non} in $B$.\\
+
+\underline{\textbf{Nota Bene: tale operazione non è commutativa in quanto rappresentano elementi differenti!}}\\ \\ \\
+\textbf{Esempio:}
+Consideriamo l'insieme $S$ formato da persone
+\begin{center}
+	\begin{math}
+		S=\left\lbrace persone\right\rbrace 
+	\end{math}
+\end{center}
+e le seguenti proprietà:\\
+\begin{enumerate}
+	\item[$\alpha$] x è una persona bionda
+	\item[$\beta$] x è una persona con gli occhi azzurri
+\end{enumerate}
+andando ad applicare le seguenti proprietà all'insieme $S$ otteniamo due sottoinsiemi:
+
+	\begin{equation*}
+		\begin{array}{l}
+			A= \left\lbrace x\in S: x \ \grave e \ bionda \right\rbrace \\
+			B= \left\lbrace x\in S: x \ gli \ occhi \ azzurri\right\rbrace.
+		\end{array}
+	\end{equation*}
+Se ora andiamo ad effettuare le operazioni di \textit{unione, intersezione e complemento} otteniamo quanto segue:
+\begin{equation*}
+		A \cup B = \left\lbrace x \in S : x\in A \lor x \in B\right\rbrace 
+\end{equation*}
+persone \textit{bionde} \underline{oppure} \textit{con gli occhi azzurri};
+\begin{equation*}
+		A \cap B = \left\lbrace x \in S : x\in A \wedge x \in B\right\rbrace 
+\end{equation*}
+persone \textit{bionde} \underline{e} \textit{con gli occhi azzurri};
+
+\begin{equation*}
+			A \setminus B = \left\lbrace x \in S : x\in A \wedge x \notin B\right\rbrace 
+\end{equation*}
+persone \textit{bionde} \underline{ma non} \textit{con gli occhi azzurri};
+
+
+\begin{equation*}
+			A \setminus B = \left\lbrace x \in S : x\in A \wedge x \notin B\right\rbrace 
+\end{equation*}
+
+persone \underline{che non sono} \textit{bionde} \underline{ma che hanno} \textit{gli occhi azzurri}.
+
+\subsection{Definizione di prodotto cartesiano:}
+il prodotto cartesiano tra due insiemi $A$ e $B$ è quell'insieme che ha come elementi tutte le possibili coppie ordinate $(a,b)$ con $a\in A$ e $b\in B$ 
+
+\begin{equation*}
+			\begin{array}{l}
+			A \times B=\left\lbrace (a,b):a\in A \wedge b\in B\right\rbrace \\
+			B \times A=\left\lbrace (b,a):a\in A \wedge b\in B\right\rbrace 
+		\end{array}
+\end{equation*}
+
+\underline{\textbf{Nota Bene: tale operazione non è commutativa: $A \times B \neq B \times A$}}
+\n
+Il prodotto cartesiano gode invece della proprietà associativa:
+\begin{equation*}
+	A_1 \times A_2 \times A_3 = (A_1 \times A_2) \times A_3 =A_1 (\times A_2 \times A_3) 
+\end{equation*}
+Il prodotto cartesiano tra più insiemi può essere scritto con il simbolo di \textit{produttoria}
+
+\begin{equation*}
+	\prod_{i=1}^{n} A_i = A_1 \times A_2 \times ... \times A_n
+\end{equation*}
+
+
+\subsection{Definizione coppia ordinata}
+Una coppia ordinata è insieme ordinato costituito da un elemento $a$ appartenente a un insieme $A$ e da un elemento $b$ appartenente a un insieme $B$, presi nell’ordine. 
+$a$ si dice prima coordinata, $b$ seconda coordinata; la coppia ordinata è denotata con il simbolo $ (a, b)$ oppure $(a; b). $ 
+
+\begin{equation*}
+			(a,b):a\in A \wedge b\in B
+\end{equation*}
+
+L’insieme delle coppie ordinate aventi come prima coordinata un elemento dell’insieme $A$ e come seconda coordinata un elemento dell’insieme $B$ è detto prodotto cartesiano di $A$ per $B$
+\textit{(si veda il paragrafo precedente)}. 
+\subsection[N-upla ordinata]{Definizione di n-upla coordinata}
+Una n-upla ordinata è un insieme ordinato formato da $n$ elementi.\\
+Consideriamo gli insiemi:
+
+\begin{equation*}
+			A_1,A_2,...,A_n : A_i \neq \emptyset \ , \forall i \in \Ne 
+\end{equation*}
+
+la n-upla (\textit{quando si indica n-upla si sottointende che essa sia ordinata}) corrispondente sarà
+
+\begin{equation*}
+			(a_1,a_2,a_3,...,a_n)
+\end{equation*}
+
+l'insieme delle \textit{n-uple} ordinate viene indicato così:
+
+\begin{equation*}
+	S=\left\lbrace (a_i, a_n):a_i \in A_i, 1\leq i \leq n, n \in \Ne\right\rbrace 
+\end{equation*}
+\subsection[Relazione binaria]{Relazione binaria tra insiemi}
+Dati due insiemi $A$ e $B$ e definito il loro prodotto cartesiano $A \times B$, si definisce \textit{Relazione Binaria} $\mathcal{R}$ tra i due insiemi $A$ e $B, \neq \emptyset$ una legge che associa ad un elemento dell'insieme $A$ uno o più elementi dell'insieme $B$ e/o viceversa e si crea un sottoinsieme del prodotto cartesiano.\\
+Due elementi $a$ e $b$ sono messi in relazione da $\mathcal{R}$ se
+\begin{equation*}
+	(a,b) \in \mathcal{R}
+\end{equation*}
+dove $\R$ in questo caso rappresenta il sottoinsieme formato dagli elementi che soddisfano la relazione $\R$ ed in tal caso si scrive $a\mathcal{R} b$ e sta ad indicare che il prodotto cartesiano $A \times B$ ammette sottoinsiemi \textit{non banali}.
+
+
+
+\subsubsection{Proprietà delle relazioni}
+Consideriamo una relazione $\R$ in un insieme $A$, di tale relazione si può dire che
+
+\begin{enumerate}
+	\item $\R$ è riflessiva \sss $(x\R x, \ \forall x)$
+	\item $\R$ è simmetrica \sss $(a\R b \implies b\R a)$
+	\item $\R$ è simmetrica \sss $(a\R b \nlongRightarrow b\R a)$
+	\item $\R$ è transitiva \sss $(a\R b, b\R c \implies a\R c)$
+\end{enumerate}
+\n
+\textbf{\underline{Nota Bene: se valgono le proprietà 1,2,4 la proprietà $\R$ è equivalente e si indica $a \sim b$}}\ns
+\textbf{\underline{($a$ equivalente $b$)}}
+\n
+\textbf{Definizione: }una relazione $\R$ in $A$ che è \textit{antisimmetrica e transitiva}, è detta \textit{relazione d'ordine di }$A$. In questo caso $A$ è detto \textit{insieme ordinato.}
+\textbf{Esempio: }un segmento orientato è un segmento in cui è fissato un verso (\textit{di percorrenza})
+Nell'insieme dei segmenti orientati del piano consideriamo la seguente relazione
+\begin{equation*}
+	x\R y
+\end{equation*}
+quando
+\begin{enumerate}
+	\item $x$ ha la stessa lunghezza di $y$
+	\item $x$ è parallelo ad $y$
+	\item $x$ è congruente ad $y$ e a sua volta è congruente a $z$
+\end{enumerate}
+Verifichiamo ora se la proprietà $\R$ sia o meno \textit{equivalente}, nel caso di segmenti geometrici si dice \textit{equipollente.}
+
+\begin{enumerate}
+	\item $\R$ è riflessiva?\\
+	Sì, $\R$ è riflessiva in quanto un segmento è uguale a se stesso, quindi presenta una relazione del tipo $a\R a$.
+	\item $\R$ è simmetrica?\\
+	Sì, se un segmento $\overline{AB}$ è parallelo ad un altro allora anche esso sarà parallelo al segmento $\overline{AB}$.
+	\item $\R$ è transitiva?\\
+	Sì, se un segmento $\overline{AB}$ è congruente ad un altro segmento e quest'ultimo è congruente ad un terzo, allora $\overline{AB}$ sarà congruente a quest'ultimo.
+\end{enumerate}
+In questo caso $\R$ è detta \textit{relazione di equipollenza.}
+
+\subsection{Classi di equivalenza e insieme quoziente.}
+Consideriamo l'insieme $X$ formato dai segmenti del piano
+\begin{equation*}
+	X= \left\lbrace segmenti \ del \ piano \right\rbrace 
+\end{equation*}
+Suddividiamo l'insieme in tanti sottoinsiemi $X_i \in X$, se ogni sottoinsieme è formato da elementi equivalenti allora ognuno di essi è detto \textit{classe di equivalenza}.
+\n
+\textbf{Proprietà: }
+
+\begin{enumerate}
+	\item
+	\begin{equation*}
+		\bigcup_{i=1}^n X_i = X
+	\end{equation*}
+	
+	\item
+	\begin{equation*}
+		X_i \cap X_j = \emptyset \ , \forall i \neq j
+	\end{equation*}
+\end{enumerate}
+\begin{flushright}
+	\textit{concetto di partizione}
+\end{flushright}
+\noindent
+\textbf{Definizione: }un vettore geometrico è un rappresentate di classe di equivalenza di segmenti orientati.
+\textbf{Definizione: }l'insieme quoziente è un insieme formato dai rappresentati di ogni classe di equivalenza. $Q \subseteq X$
+\section[Analisi I: Funzioni]{Concetto di funzione}
+Una funzione è una legge matematica che associa uno o più elementi di un insieme corrisponde uno e un solo elemento di un altro.
+\begin{equation*}
+	f : X\rightarrow Y
+\end{equation*}
+dove l'insieme $X$ è definito \textit{dominio della funzione}.
+\begin{equation*}
+	f(x)=\left\lbrace y\in Y : \exists \ x \in X \ | \ f(x)=y \right\rbrace .
+\end{equation*}
+\textbf{Definizione: }il codominio di una funzione è l'insieme degli elementi di $Y:\exists f(x)=y$.\\
+\textbf{Definizione: condizione di esistenza di una funzione}
+\begin{equation*}
+	\forall x\in X \ \exists ! \ y\in Y : f(x) = y.
+\end{equation*}
+Per ogni $x$ appartenente al dominio della funzione \underline{esiste ed è unica} una $y$ appartenente al codominio tale che $f(x)$ è uguale a $y$.
+
+\newpage
+\begin{center}
+	{\LARGE \textbf{Geometria}}
+\end{center}
+\section[Geometria I: Sistemi Lineari]{Sistemi lineari}
+In questa sezione andremo ad analizzare i sistemi lineari di $m$ equazioni in $n$ incognite. Prendiamo in considerazione il sistema
+\begin{equation*}
+	\Sigma = {
+	\begin{sistema}
+		a_{11} x_1 \ + a_{12} x_2\  + a_{13} x_3 \ + ...  + a_{1n} x_m \  = b_1 \\
+		a_{21} x_1 \ + a_{22} x_2 \ + a_{23} x_3 \ + ... + a_{2n} x_m \  = b_2 \\
+		a_{m1} x_1  + a_{m2} x_2 + a_{m3} x_3 + ... + a_{mn} x_m  = b_m
+		
+	\end{sistema}
+}
+\end{equation*}
+dove $a_{11}, a_{12}, \dots , a_{mn}$ sono detti \textit{coefficienti}. 
+\ns
+Andiamo a prendere ora in esame un caso concreto:
+ \begin{equation*}
+ 	\begin{sistema}
+ 		x_1 - x_2 +2x_3 = 1 \\
+ 		x_2 - x_1 = 0
+ 	\end{sistema}
+ \end{equation*}
+in questo caso abbiamo che
+\begin{equation*}
+	\begin{array}{lllll}
+		a_{11}=1 & a_{12}= -1 & a_{13}=2 & b_1 = 1 \\
+		a_{21}=-1 & a_{22}= 1 & a_{23}=0 & b_2 = 0
+	\end{array}
+\end{equation*}
+\ns
+sono i coefficienti delle rispettive $x$.
+\subsection{Proprietà e definizioni}
+\textbf{Definizioni: }
+\ns
+Sia $\Sigma$ un sistema lineare di $m$ equazioni in $n$ incognite:
+\begin{enumerate}
+	\item una soluzione di $\Sigma$ è una $n-upla$ ordinata di numeri $(S_1, S_2, \dots , S_n)$ tali che se sostituiti alle incognite in modo \textit{ordinato} rende vere tutte le equazioni.
+	\item Sia $sol(\Sigma)$ l'insieme delle soluzioni di $\Sigma$. $\Sigma$ si dice \textit{compatibile} se $sol(\Sigma) \neq 0$
+	\item Un sistema si dice \textit{incompatibile} se l'insieme delle soluzioni, $sol(\Sigma)$ è vuoto. In questo caso non esiste nessuna $n-upla$ ordinata che verifica il sistema.
+	\item Due sistemi, $\Sigma_1$ e $\Sigma_2$, si dicono \textit{equivalenti} se $sol(\Sigma_1) = sol(\Sigma_2)$.
+\end{enumerate}
+Consideriamo il seguente sistema:
+\begin{equation*}
+	\Sigma_1 =
+	\begin{sistema}
+		x_1 - x_2 +2x_3 =1 \\
+		-x_1 +x_2 = 0
+	\end{sistema}
+\end{equation*}
+e le seguenti soluzioni del sistema
+\begin{equation*}
+	\begin{pmatrix}
+		S_{1} \\
+		S_2 \\
+		S_3
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		1 \\
+		1 \\
+		\frac{1}{2}
+	\end{pmatrix}
+	\end{equation*}
+\begin{equation*}
+	\begin{pmatrix}
+		2 \\
+		2 \\
+		\frac{1}{2}
+	\end{pmatrix}
+\end{equation*}
+\begin{center}
+queste due terne di soluzioni verificano il sistema, pertanto $\Sigma_1$ è \textit{compatibile}.
+\end{center}
+\begin{equation*}
+	\begin{pmatrix}
+		1 \\
+		\frac{1}{2} \\
+		1
+	\end{pmatrix}
+\end{equation*}
+\begin{center}
+	quest'ultima invece non è soluzione di $\Sigma_1$ poiché non lo verifica.
+\end{center}
+\textbf{Esempio: }il seguente sistema
+\begin{equation*}
+	\Sigma_2 = 
+	\begin{sistema}
+		x_1 + x_2 = 1 \\
+		x_1 + x_2 = 0
+	\end{sistema}
+\end{equation*}
+non presenta soluzioni in quanto la stessa quantità non può essere uguale contemporaneamente a due valori diversi, quindi $sol(\Sigma_2)=\emptyset$. $\Sigma_2$ incompatibile.
+\n
+\textbf{Definizioni: }
+\ns
+Sia $\Sigma$ un sistema lineare di $m$ equazioni in $n$ incognite:
+\begin{enumerate}
+	\item Se $b_1 = b_2 = b_3 = b_4 = \dots = b_n = 0, \ \Sigma$ si dice \textit{omogeneo} ed ammette sempre come soluzione una \textit{n-upla} ordinata formata da tutti zeri.
+	\item Se $\Sigma$ non è omogeneo, quindi $\exists \ b_n \neq 0$, allora $\Sigma_0$, sistema ottenuto sostituendo ai termini noti lo zero, si dice \textit{omogeneo associato}.
+\end{enumerate}
+\section{Matrici}
+Ad ogni sistema di $m$ equazioni in $n$ incognite è \underline{sempre} associato una matrice.
+\begin{equation*}
+	\Sigma = {
+		\begin{sistema}
+			a_{11} x_1 \ + a_{12} x_2\  + a_{13} x_3 \ + ...  + a_{1n} x_m \  = b_1 \\
+			a_{21} x_1 \ + a_{22} x_2 \ + a_{23} x_3 \ + ... + a_{2n} x_m \  = b_2 \\
+			a_{m1} x_1  + a_{m2} x_2 + a_{m3} x_3 + ... + a_{mn} x_m  = b_m
+			
+		\end{sistema}
+	}
+\end{equation*}
+Al sistema $\Sigma$ possono essere associate due matrici, $A$ e $B$:
+\begin{equation*}
+	A= 
+	\begin{pmatrix}
+		a_{11} & a_{12} & \dots&  a_{1n} \\
+		a_{21} & a_{22} & \dots&  a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \dots&  a_{mn}
+		
+	\end{pmatrix}
+\end{equation*}
+
+\begin{equation*}
+	A=
+	\left(  
+	\begin{array}{cccc}
+		a_{11} & a_{12} & \dots&  a_{1n} \\
+		a_{21} & a_{22} & \dots&  a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \dots&  a_{mn}
+	\end{array}\right |
+	\left.
+	\begin{array}{c}
+		b_1 \\
+		b_2 \\
+		\vdots \\
+		b_m
+	\end{array}\right) 
+\end{equation*}
+\n
+La matrice $A$ è detta \textit{matrice dei coefficienti}, la matrice $B$ invece viene detta \textit{matrice completa} oppure \textit{orlata}.
+\n
+\textbf{Esempio: }consideriamo il sistema $\Sigma_1$
+\begin{equation*}
+	\Sigma_1 = 
+	\begin{sistema}
+		x_1 - x_2 +2x_3 = 1 \\
+		- x_1 + x_2 = 0
+	\end{sistema}
+\end{equation*}
+\ns
+le matrici rispettivamente dei coefficienti e completa saranno
+\begin{equation*}
+	A=
+	\left(  
+	\begin{array}{rrrr}
+		1 & -1 & 2\\
+		-1 & 1 & 0
+	\end{array}\right) 
+\end{equation*}
+
+\begin{equation*}
+	B=
+	\left(  
+	\begin{array}{rrrr}
+		1 & -1 & 2\\
+		-1 & 1 & 0
+	\end{array}\right |
+	\left.
+	\begin{array}{r}
+		1 \\
+		0 \\
+	\end{array}\right) 
+\end{equation*}
+\subsection{Definizioni sulle matrici}
+Una matrice
+\begin{equation*}
+	A=
+	\left(  
+	\begin{array}{cccc}
+		a_{11} & a_{12} & \dots&  a_{1n} \\
+		a_{21} & a_{22} & \dots&  a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \dots&  a_{mn}
+		
+	\end{array}\right)
+\end{equation*}
+
+\begin{enumerate}
+	\item è una tabella in cui sono rappresentati degli elementi dotati di doppio indice: \textit{riga e colonna}.
+	\item La matrice $A$ si può scrivere in maniera compatta come
+	\begin{equation*}
+		A=(a_{ij}) \ 1\leq i \leq m \ , 1 \leq j \leq n.
+	\end{equation*}
+	\item L'insieme delle matrici \underline{reali} con $m$ righe ed $n$ colonne si scrive così:
+	\begin{equation*}
+		M_{m\times n}(\mathbb{R}).
+	\end{equation*}
+	\item Se le matrici hanno una sola colonna sono dette \textit{matrici colonna}, analogamente se hanno una sola riga sono dette \textit{matrici riga}.
+	\item \textbf{Se in una matrice il numero di righe $ m $, è uguale al numero di colonne $ n $, si dice che la matrice è \textit{quadrata} di ordine $n$}
+	\item Si consideri la seguente matrice quaadrata di ordine $n$:
+	\begin{equation*}
+		A=
+		\left(  
+		\begin{array}{cccc}
+			\textcolor{blue}{a_{11}} & a_{12} & \dots&  \textcolor{red}{a_{1n}} \\
+			a_{21} & \textcolor{blue}{a_{22}} & \textcolor{red}{\dots}&  a_{2n} \\
+			a_{31} & \textcolor{red}{a_{m1} } & \textcolor{blue}{\dots}&  a_{3n} \\
+			\textcolor{red}{a_{m1}} & a_{m2} & \dots&  \textcolor{blue}{a_{mn}}
+		\end{array}\right)
+	\end{equation*}
+	gli elementi in \textcolor{blue}{blu} rappresentano la \textit{diagonale principale}, mentre quelli \textcolor{red}{rosso} rappresentano la \textit{diagonale secondaria}.
+	\ns
+	\nb{questa regola si applica solo alle matrici quadrate}.
+	\item Una matrice è \textit{triangolare superiore} se $a_{ij}=0 \ \forall i>j$, mentre \textit{strettamente superiore} se $ a_{ij}=0 \ \forall i \ge j $
+	\begin{equation*}
+		A=
+		\left(  
+		\begin{array}{cccc}
+			\fbox{1} & 2 & 5 & 9 \\
+			0 & \fbox{3} & 7 & 11 \\
+			0 & 0 & \fbox{6} & 18 \\
+			0 & 0 & 0 & \fbox{8}
+		\end{array}\right) 
+	\end{equation*}
+	al di sotto della diagonale principale ci sono solo $0$.
+	
+	\item Una matrice è \textit{triangolare inferiore} se $a_{ij}=0 \ \forall i<j$, mentre \textit{strettamente superiore} se $ a_{ij}=0 \ \forall i \le j $
+	\begin{equation*}
+		A=
+		\left(  
+		\begin{array}{rrrr}
+			\fbox{9} & 0 & 0 & 0 \\
+			2 & \fbox{-2} & 0 & 0 \\
+			8 & -5 & \fbox{8} & 0 \\
+			-1 & 3 & 2 & \fbox{2}
+		\end{array}\right) 
+	\end{equation*}
+	al di sopra della diagonale principale ci sono solo $0$.
+	\item Una matrice è \textit{diagonale} se $ a_{ij} = 0 \ \forall i\neq j $
+	\begin{equation*}
+		A=
+		\left(  
+		\begin{array}{rrrr}
+			\fbox{1} & 0 & 0\\
+			0 & \fbox{3} & 0 \\
+			0 & 0 & \fbox{2}
+		\end{array}\right) 
+	\end{equation*}
+	\item Una matrice è \textit{nulla} se $ a_{ij}=0 \ \forall \ i,j $.
+	\begin{equation*}
+		A=
+		\left(  
+		\begin{array}{rrrr}
+			0 & 0 & 0\\
+			0 & 0 & 0 \\
+			0 & 0 & 0
+		\end{array}\right) 
+	\end{equation*}
+	\item Si dice \textit{matrice identità} la matrice quadrata che ha $ a_{ij}=1 \ \forall \ i=j$
+	\begin{equation*}
+		I_3=
+		\left(  
+		\begin{array}{rrrr}
+			\fbox{1} & 0 & 0\\
+			0 & \fbox{1} & 0 \\
+			0 & 0 & \fbox{1}
+		\end{array}\right) 
+	\end{equation*}
+\end{enumerate}
+\subsection{Algoritmo di eliminazione di Gauss-Jordan}
+L'algoritmo di eliminazione di Gauss-Jordan viene utilizzato per risolvere sistemi di equazioni lineari.
+\n
+\textbf{Definizioni:}
+\begin{enumerate}
+	\item Le operazioni ammissibili sono:
+	\begin{enumerate}
+		\item scambio di due  righe;
+		\item moltiplicare una riga per un fattore $ \alpha \in \mathbb{R}\neq0 $;
+		\item sommare tra loro 2 righe;
+		\item sommare ad una riga un multiplo reale di un'altra riga;
+	\end{enumerate}
+	\item come operazioni ammissibili consideriamo una concatenazione finita di operazioni elementari ammissibili.
+\end{enumerate}
+\textbf{Definizione: }se ottengo una matrice $M'$ da $M$, usando solo operazioni ammissibili, possiamo dire \par \noindent (secondo Gauss) che le matrici $M'$ ed $M$ sono \textit{equivalenti}.
+\n
+\textbf{Osservazione: }siano $B$ e $B'$ due matrici complete di $\Sigma$ e $\Sigma'$, $sol(\Sigma)=sol(\Sigma')$ se e solo se $M \sim M'$.
+\n
+\textbf{Definizioni:}
+\begin{enumerate}
+	\item una riga è nulla se contiene tutti zeri;
+	\item il primo elemento non nullo di una riga si chiama \textit{pivot};
+	\item una matrice è in forma \textit{a gradini} se:
+	\begin{enumerate}
+		\item tutte le righe nulle sono in basso;
+		\item il pivot di una riga non nulla si trova sempre più a destra (\textit{come colonna}) dei pivot delle righe superiori
+			\begin{equation*}
+			A=
+			\left(  
+			\begin{array}{cccccc}
+				\fbox{1} & 3 & 1 & 8 & 0 & 2\\
+				0 & 0 & \fbox{2} & 0 &  0 & -1\\
+				0 & 0 & 0 & \fbox{-2} & 0 & 1 \\
+				0 & 0 & 0 & 0 & 0 & 0
+			\end{array}\right)
+			\text{{\tiny gli elementi riquadrati sono i pivot}}
+		\end{equation*}
+	\end{enumerate}
+\end{enumerate}
+\textbf{Con opportune operazioni ammissibili è possibile ricondurre ogni matrice ad una matrice a scalini}
+\n
+\textbf{Definizione: }una matrice è in forma ridotta se
+\begin{enumerate}
+	\item è a scalini;
+	\item ogni pivot è uguale ad $1$ ed è l'unico elemento non nullo della propria colonna;
+\end{enumerate}
+\subsection{Prodotto tra matrici}
+Siano $A$ e $B$ due matrici:
+\begin{equation*}
+	\begin{array}{c}
+		A \in M_{m,n} (\mathbb{R}) \\
+		B \in M_{m,n} (\mathbb{R})
+	\end{array}
+\end{equation*}
+il prodotto tra matrici è definito come segue:
+\begin{equation*}
+	\underset{mn}{A} \cdot \underset{pq}{B} = \underset{mq}{C} \in M_{mq} (\mathbb{R}) = C_{ik} = \sum_{j=1}^{n} a_{ij} \cdot b_{jk}
+\end{equation*}
+
+\textbf{Esempio: }
+	\begin{equation*}
+	A_{4\times 3}=
+	\left(  
+	\begin{array}{rrrr}
+		1 & 2 & 0\\
+		-1 & -1 & 1 \\
+		0 & 2 & 1 \\
+		3 & 1 & 0
+	\end{array}\right)
+	\ \ \ \
+	B_{4\times 3}=
+	\left(  
+	\begin{array}{rrrr}
+		1 & 2\\
+		1 & 1 \\
+		0 & 1
+	\end{array}\right)
+\end{equation*}
+la matrice prodotto risulterà essere
+\begin{equation*}
+	A \cdot B = C_{4,2} =
+	\begin{pmatrix}
+		3 & 4\\
+		-2 & -4\\
+		2 & 3 \\
+		4 & 7
+	\end{pmatrix}.
+\end{equation*}
+Per formare ogni elemento bisognerà seguire la formula sopracitata, ad esempio per calcolare il valore dell'elemento di posto (1,1) scriveremo
+\begin{equation*}
+	c_{1,1} = \sum_{j=1}^{3} a_{ij} \cdot b_{jk} = a_{11} \cdot b_{11} + a_{12} \cdot b_{21} + a_{13} \cdot b_{31}.
+\end{equation*}
+Sostituendo con i numeri si ottiene
+\begin{equation*}
+	c_{1,1} = 1 \cdot 1 + 2 \cdot 1 + 0 \cdot 0 = 2+1=3.
+\end{equation*}
+\textbf{Importante: }
+\begin{enumerate}
+	\item \begin{equation*}
+		A \times B \neq B \times A
+	\end{equation*}
+	
+	\item \begin{equation*}
+		A\cdot B=0 \nlongRightarrow A = 0 \lor B = 0.
+	\end{equation*}
+\end{enumerate}
+\subsection[Proprietà prodotto matriciale]{Proprietà del prodotto tra matrici}
+\begin{enumerate}
+	\item
+	\begin{equation*}
+		(A \times B) \times C = A \times (B \times C) =  A \times B \times C
+	\end{equation*}
+	
+	\item
+	\begin{equation*}
+			A \times (B+C)=A \times B + A \times C
+	\end{equation*}
+
+	\item
+	\begin{equation*}
+		(A+B)\times C=A \times C + B \times C
+	\end{equation*}
+
+	\item
+	\begin{equation*}
+		\alpha (A \times B) = (\alpha A) \times B = A \times (\alpha B)
+	\end{equation*}
+	
+	\item
+	\begin{equation*}
+		(A \times B)^T = A^T \times B^T
+	\end{equation*}
+	
+	\item
+	\begin{equation*}
+		\underset{n}{A} \times I_n = \underset{n}{A} = I_n \times \underset{n}{A}
+	\end{equation*}
+	
+	\item
+	\begin{equation*}
+		\alpha \times I_n = \begin{pmatrix}
+			\alpha & \dots & 0 \\
+			\vdots & \ddots & \vdots \\
+			0 & \dots & \alpha
+		\end{pmatrix}
+	\end{equation*}
+
+	\item
+	\textbf{Osservazione: } $\alpha \times I_n$ commuta con ogni matrice quadrata $n\times n$ in accordo con la proprietà 4
+\end{enumerate}
+\subsection{Proprietà di potenze di matrici quadrate}
+\begin{eqnarray*}
+	A^0 = I_n & & A^k = \underset{\text{k volte}}{\underbrace{A\times A \times A \times A \dots \times A}}
+\end{eqnarray*}
+\n
+\textbf{Osservazione: }sia $D \in M_n(\mathbb{R})$ definita come segue,
+\begin{eqnarray*}
+	D=
+	\begin{pmatrix}
+		\lambda_1 & \dots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \dots & \lambda_n
+	\end{pmatrix}
+	&& \lambda_n \in \mathbb{R} \wedge n \in \mathbb{N}
+\end{eqnarray*}
+l'elevamento a potenza di tale matrice risulta essere
+\begin{eqnarray*}
+	D^k=
+	\begin{pmatrix}
+		\lambda_1^k & \dots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \dots & \lambda_n^k
+	\end{pmatrix}
+\end{eqnarray*}
+\subsection{Matrici invertibili}
+
+
+\newpage
+\ns
+Questa dispensa è stata scritta esclusivamente in \LaTeX \ da Francesco Maura. \\ Per ulteriori informazioni o correzioni invia una mail a \href{mailto:maura.2017683@studenti.uniroma1.it}{\textcolor{red}{maura.2017683@studenti.uniroma1.it}}
+\end{document}
